@@ -23,4 +23,6 @@ jobs:
         uses: helm/chart-releaser-action@v1.6.0
         env:
           charts_dir: charts
+          packages_with_index: true
+          pages_branch: main
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
