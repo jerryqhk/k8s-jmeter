@@ -19,7 +19,7 @@ cleaner:
 grafana:
   # Deloyement options
   enabled: true
-  useBuiltInDashboard: true
+  useBuiltInDashboards: true
   useBuiltInDatasource: true
   replicas: 1
   image: docker.io/grafana/grafana:7.3.3
