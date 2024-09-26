@@ -38,7 +38,7 @@ grafana:
     accessMode: ReadWriteOnce
 
   adminUsername: "admin"
-  adminPassword: "XhXUdmQ576H6e7"
+  adminPassword: "Pass2014*"
     
   # Service options
   service:
