@@ -26,4 +26,5 @@ jobs:
           charts_dir: charts
           packages_with_index: true
           pages_branch: main
+          pages-index-path: origin/main
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
