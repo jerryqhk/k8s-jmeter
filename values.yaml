@@ -1,20 +1,15 @@
 # Namespace
 namespace: jmeter
 
-# Segregate framework on a specific node pool ? (it's a good practice to not use tested application node resources for load testing tools)
+# Segregate framework on a specific node pool
 segregate:
   enabled: false
   nodeSelector:
     # Specific annotations for each cloud providers
     annotationKey: k8s.scaleway.com/pool-name
     annotationValue: injectors
-  # Used only for the demo app to be in another node pool
-  nodeSelectorDemo:
-    annotationKey: k8s.scaleway.com/pool-name
-    annotationValue: demo
 
-
-# CronJob used to clean old JMeter jobs (to free completely the resources, even kubelet and etcd ones)
+# CronJob used to clean old JMeter jobs and to free completely the resources, even kubelet and etcd ones
 cleaner:
   enabled: true
   schedule: "*/1 * * * *"
@@ -84,8 +79,7 @@ influxdb:
 
 # JMeter jobs used as load injectors and master
 jmeter:
-  # Image tag is JMeter's version
-  image: rbillon59/jmeter-k8s-base:5.4.1
+  image: rbillon59/jmeter-k8s-base:5.6.2
   enableMonitoring: true
   master:
     resources:
@@ -115,24 +109,6 @@ jmeter:
       limits:
         memory: "1024Mi"
         cpu: "1024m"
-    
-
-
-# Demo application used inside the default JMeter scenario
-demo:
-  enabled: true
-  minReplicas: 1
-  maxReplicas: 10
-  targetCpuUsage: 30
-  resources:
-    requests:
-      memory: "64Mi"
-      cpu: "128m"
-    limits:
-      memory: "1024Mi"
-      cpu: "1024m"
-  service:
-    port: 8080
 
 # StatefulSet used to monitor the nodes
 telegraf:
