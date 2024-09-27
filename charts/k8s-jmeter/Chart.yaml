@@ -1,8 +1,0 @@
-apiVersion: v2
-name: k8s-jmeter
-description: Load testing framework
-type: application
-# chart version
-version: "0.0.3"
-# app version
-appVersion: "0.0.3"
